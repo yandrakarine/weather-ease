@@ -9,6 +9,8 @@ const palette = {
 const theme = createTheme({
   colors: {
     mainBackground: palette.white,
+    white: palette.white,
+    black: palette.black,
   },
   spacing: {
     s: 8,
