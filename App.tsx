@@ -1,14 +1,11 @@
 import React from 'react';
-import { Navigation } from './src/navigation/Navigation';
-import { ThemeProvider } from '@shopify/restyle';
-import theme from '@styles/theme';
+import { AppProvider } from '@components/AppProvider';
+import { Navigation } from '@navigation/Navigation';
 
-const App = () => {
-  return (
-    <ThemeProvider theme={theme}>
-      <Navigation />
-    </ThemeProvider>
-  );
-};
+const App = () => (
+  <AppProvider>
+    <Navigation />
+  </AppProvider>
+);
 
 export default App;
