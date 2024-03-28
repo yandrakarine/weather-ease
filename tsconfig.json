@@ -9,7 +9,8 @@
       "@hooks/*": ["./src/hooks/*"],
       "@navigation/*": ["./src/navigation/*"],
       "@screens/*": ["./src/screens/*"],
-      "@repository/*": ["./src/repository/*"]
+      "@repository/*": ["./src/repository/*"],
+      "@assets/*": ["./src/assets/*"]
     }
   }
 }
