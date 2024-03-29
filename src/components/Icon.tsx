@@ -10,12 +10,12 @@ import theme, { Theme } from '@styles/theme';
 
 type IconProps = Omit<RNImageProps, 'source' | 'tintColor'> &
   Partial<MediaDimensions> & {
-    image: IconName;
+    name: IconName;
     touchProps?: TouchableOpacityProps;
-    color: keyof Theme['colors'];
+    color?: keyof Theme['colors'];
   };
 
-const Icon = ({ image, touchProps, color, ...props }: IconProps) => {
+const Icon = ({ name, touchProps, color, ...props }: IconProps) => {
   const styles = useMemo(
     () => ({
       dimensions: {
@@ -26,14 +26,19 @@ const Icon = ({ image, touchProps, color, ...props }: IconProps) => {
     [props.height, props.width],
   );
 
+  const tintColor = useMemo(
+    () => (color ? theme.colors[color] : undefined),
+    [color],
+  );
+
   if (touchProps) {
     return (
       <TouchableOpacity {...touchProps}>
         <RNImage
-          source={Icons[image]}
+          source={Icons[name]}
           {...props}
           style={styles.dimensions}
-          tintColor={theme.colors[color]}
+          tintColor={tintColor}
         />
       </TouchableOpacity>
     );
@@ -41,10 +46,10 @@ const Icon = ({ image, touchProps, color, ...props }: IconProps) => {
 
   return (
     <RNImage
-      source={Icons[image]}
+      source={Icons[name]}
       {...props}
       style={styles.dimensions}
-      tintColor={theme.colors[color]}
+      tintColor={tintColor}
     />
   );
 };

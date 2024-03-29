@@ -1,6 +1,6 @@
 import React from 'react';
-import { AppProvider } from '@components/AppProvider';
 import { Navigation } from '@navigation/Navigation';
+import { AppProvider } from '@components/AppProvider';
 
 const App = () => (
   <AppProvider>
