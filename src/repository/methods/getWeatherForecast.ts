@@ -8,10 +8,7 @@ import {
 const getWeatherForecast = async ({
   lat,
   lon,
-}: {
-  lat: City['lat'];
-  lon: City['lon'];
-}): Promise<WeatherForecast | null> => {
+}: CityCoordinates): Promise<WeatherForecast | null> => {
   const forecastUri = getForecastURI({
     lat,
     lon,
