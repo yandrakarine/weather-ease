@@ -5,15 +5,24 @@ const palette = {
   black: '#0B0B0B',
   white: '#FFFFFF',
   background: '#1A1C4B',
+  bgMain: '#8ba8d2',
+  iconGrey: '#d3d3d3',
 };
 
 const theme = createTheme({
   colors: {
-    mainBackground: palette.white,
+    iconGrey: palette.iconGrey,
+    mainBackground: palette.bgMain,
     white: palette.white,
     black: palette.black,
   },
   spacing: {
+    s: 8,
+    m: 16,
+    l: 24,
+    xl: 40,
+  },
+  borderRadii: {
     s: 8,
     m: 16,
     l: 24,
