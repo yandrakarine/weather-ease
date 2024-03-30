@@ -1,6 +1,6 @@
 import { CitiesContent } from '@components/CitiesContent';
 import { Container } from '@components/Container';
-import { ForecastContent } from '@components/ForecastContent';
+import { ForecastContent } from '@components/ForecastContent/ForecastContent';
 import { SearchInput } from '@components/SearchInput';
 import { useDebounce } from '@hooks/useDebounce';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';

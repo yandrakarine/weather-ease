@@ -7,10 +7,11 @@ import {
   FlatList,
   ListRenderItemInfo,
 } from 'react-native';
-import { Container } from './Container';
-import { DailyForecastListItem } from './DailyForecastListItem';
+import { Container } from '../Container';
+import { DailyForecastListItem } from '../DailyForecastListItem';
 import { useTheme } from '@shopify/restyle';
 import { Theme } from '@styles/theme';
+import { ForecastHeader } from './ForecastHeader';
 
 type CityCoordinatesProps = CityCoordinates & {
   onDailyForecastSelect: () => void;
@@ -51,6 +52,19 @@ const ForecastContent = ({
     [onDailyForecastSelect],
   );
 
+  const HeaderComponent = useCallback(() => {
+    if (!data?.city.name || !data.firstForecastForEachDay[0]) {
+      return null;
+    }
+
+    return (
+      <ForecastHeader
+        name={data?.city.name}
+        {...data.firstForecastForEachDay[0]}
+      />
+    );
+  }, [data?.city.name, data?.firstForecastForEachDay]);
+
   if (isLoading || isRefetching) {
     return (
       <Container style={styles.containerStyle} backgroundColor="white">
@@ -66,6 +80,7 @@ const ForecastContent = ({
       keyboardShouldPersistTaps={'handled'}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.containerStyle}
+      ListHeaderComponent={HeaderComponent}
     />
   );
 };
