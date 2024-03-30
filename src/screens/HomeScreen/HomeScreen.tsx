@@ -4,8 +4,10 @@ import { ForecastContent } from '@components/ForecastContent';
 import { SearchInput } from '@components/SearchInput';
 import { useDebounce } from '@hooks/useDebounce';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { texts } from './texts';
+import { Typography } from '@components/Typography';
+import { Visibility } from '@components/Visibility';
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'HomeScreen'>;
 
@@ -17,12 +19,17 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
 
   const debouncedValue = useDebounce(queryText, DELAY);
 
-  const onSelectCity = (selectedCityCoordinates: CityCoordinates) => {
-    setQueryText('');
-    setCityCoordinates(selectedCityCoordinates);
-  };
+  const onSelectCity = useCallback(
+    (selectedCityCoordinates: CityCoordinates) => {
+      setQueryText('');
+      setCityCoordinates(selectedCityCoordinates);
+    },
+    [],
+  );
 
   const hasSelectedCity = !!cityCoordinates?.lat && cityCoordinates.lon;
+
+  const shouldShowForecastsList = hasSelectedCity && !queryText;
 
   return (
     <Container
@@ -44,13 +51,20 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
           onSelectCity={onSelectCity}
         />
       ) : null}
-      {hasSelectedCity && !queryText ? (
+      {shouldShowForecastsList ? (
         <ForecastContent
           lat={cityCoordinates.lat}
           lon={cityCoordinates.lon}
           onDailyForecastSelect={() => navigation.navigate('DetailsScreen')}
         />
       ) : null}
+      <Visibility isVisible={!shouldShowForecastsList && !queryText}>
+        <Container flexGrow={1} justifyContent="center">
+          <Typography textAlign="center" variant="h4" color="white">
+            {texts.pleaseSearch}
+          </Typography>
+        </Container>
+      </Visibility>
     </Container>
   );
 };
