@@ -38,7 +38,7 @@ const CitiesContent = ({
     [theme.colors.white, theme.spacing.m],
   );
 
-  const { data, isLoading, isRefetching } = useQuery({
+  const { data, isLoading, isRefetching, error } = useQuery({
     queryKey: ['getCities', debouncedValue],
     enabled: !!debouncedValue,
     queryFn: () => getCities(debouncedValue),
@@ -66,6 +66,16 @@ const CitiesContent = ({
     return (
       <Container style={styles.containerStyle}>
         <ActivityIndicator size={'large'} color={theme.colors.mainBackground} />
+      </Container>
+    );
+  }
+
+  if (error) {
+    return (
+      <Container style={styles.containerStyle} alignItems="center">
+        <Typography variant="p1" textAlign="center">
+          {error.message}
+        </Typography>
       </Container>
     );
   }
