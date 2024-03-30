@@ -5,7 +5,7 @@ type DailyWeather = {
 };
 
 type DailyForecast = {
-  weatherDateTimeMs: number;
+  weatherDate: Date;
   main: {
     temperature: number;
     feelsLike: number;
@@ -13,7 +13,7 @@ type DailyForecast = {
     tempMax: number;
     humidity: number;
   };
-  weather: DailyWeather[];
+  weather: DailyWeather;
   wind: {
     speed: number;
     direction: number;
