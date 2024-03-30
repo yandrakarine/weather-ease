@@ -1,41 +1,13 @@
-import { TextInputProps } from 'react-native/types';
-import { TextInput } from 'react-native';
-import { Container } from './Container';
-import React, { useMemo } from 'react';
-import {
-  BackgroundColorProps,
-  SpacingProps,
-  backgroundColor,
-  composeRestyleFunctions,
-  spacing,
-  layout,
-  useRestyle,
-  LayoutProps,
-  border,
-  BorderProps,
-  useTheme,
-} from '@shopify/restyle';
-import { Theme } from '@styles/theme';
-import { Icon } from './Icon';
 import { FontName } from '@assets/fonts/fontName';
+import { useTheme } from '@shopify/restyle';
+import { Theme } from '@styles/theme';
+import React, { useMemo } from 'react';
+import { TextInput } from 'react-native';
+import { TextInputProps } from 'react-native/types';
+import { Container } from './Container';
+import { Icon } from './Icon';
 
-type RestyleProps = SpacingProps<Theme> &
-  BackgroundColorProps<Theme> &
-  LayoutProps<Theme> &
-  BorderProps<Theme>;
-
-const restyleFunctions = composeRestyleFunctions<Theme, RestyleProps>([
-  spacing,
-  backgroundColor,
-  layout,
-  border,
-]);
-
-type SearchInputProps = RestyleProps & TextInputProps;
-
-const SearchInput = (searchInputProps: SearchInputProps) => {
-  const props = useRestyle(restyleFunctions, searchInputProps);
-
+const SearchInput = (searchInputProps: TextInputProps) => {
   const theme = useTheme<Theme>();
 
   const styles = useMemo(
@@ -50,14 +22,18 @@ const SearchInput = (searchInputProps: SearchInputProps) => {
   );
 
   return (
-    <Container height={50} flexDirection="row" alignItems="center" {...props}>
+    <Container
+      height={50}
+      flexDirection="row"
+      alignItems="center"
+      backgroundColor="white"
+      borderRadius={'xl'}
+      paddingHorizontal="l">
       <Icon name="search" width={20} height={20} color="iconGrey" />
       <TextInput
+        {...searchInputProps}
         placeholderTextColor={theme.colors.iconGrey}
-        placeholder={props.placeholder}
-        onChangeText={props.onChangeText}
         style={styles.input}
-        value={props.value}
       />
     </Container>
   );
