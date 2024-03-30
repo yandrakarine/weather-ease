@@ -12,17 +12,17 @@ type DailyForecastListItemProps = DailyForecast & {
 };
 
 const DailyForecastListItem = ({
-  weatherDateTimeMs,
   weather,
   main,
   onDailyForecastSelect,
+  weatherDate,
 }: DailyForecastListItemProps) => {
-  const weatherDescription = weather[0].description;
+  const weatherDescription = weather.description;
   const iconName = getIconNamesFromWeatherDescription(weatherDescription);
 
   const weekDayLabel = useMemo(
-    () => `${format(new Date(weatherDateTimeMs), 'EEEE')}`,
-    [weatherDateTimeMs],
+    () => `${format(weatherDate, 'EEEE')}`,
+    [weatherDate],
   );
 
   const temperatureLabel = useMemo(

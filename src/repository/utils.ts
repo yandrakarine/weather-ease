@@ -19,8 +19,8 @@ const getCitiesFromGeoCodingApiResponse = (
 
 const getDailyForecastFromDailyForecastApiResponse = (
   dailyForecast: ForecastApiResponse['list'][number],
-) => ({
-  weatherDateTimeMs: dailyForecast.dt * 1000,
+): DailyForecast => ({
+  weatherDate: new Date(dailyForecast.dt * 1000),
   main: {
     temperature: dailyForecast.main.temp,
     feelsLike: dailyForecast.main.feels_like,
@@ -28,11 +28,7 @@ const getDailyForecastFromDailyForecastApiResponse = (
     tempMax: dailyForecast.main.temp_max,
     humidity: dailyForecast.main.humidity,
   },
-  weather: dailyForecast.weather.map(dailyWeather => ({
-    id: dailyWeather.id,
-    description: dailyWeather.description,
-    main: dailyWeather.main,
-  })),
+  weather: dailyForecast.weather[0],
   wind: {
     speed: dailyForecast.wind.speed,
     direction: dailyForecast.wind.deg,
