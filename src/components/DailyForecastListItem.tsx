@@ -1,19 +1,38 @@
-import React from 'react';
+import { format } from 'date-fns';
+import React, { useMemo } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { Container } from './Container';
 import { Icon } from './Icon';
 import { Typography } from './Typography';
+import { getIconNamesFromWeatherDescription } from '@utils/iconsList';
+import { getTemperatureLabel } from '@utils/metricMesure';
 
 type DailyForecastListItemProps = DailyForecast & {
   onDailyForecastSelect: () => void;
 };
 
 const DailyForecastListItem = ({
-  weatherDate,
+  weatherDateTimeMs,
   weather,
   main,
   onDailyForecastSelect,
 }: DailyForecastListItemProps) => {
+  const weatherDescription = weather[0].description;
+  const iconName = getIconNamesFromWeatherDescription(weatherDescription);
+
+  const weekDayLabel = useMemo(
+    () => `${format(new Date(weatherDateTimeMs), 'EEEE')}`,
+    [weatherDateTimeMs],
+  );
+
+  const temperatureLabel = useMemo(
+    () =>
+      `${getTemperatureLabel(main.tempMin)}/${getTemperatureLabel(
+        main.tempMax,
+      )}`,
+    [main.tempMax, main.tempMin],
+  );
+
   return (
     <TouchableOpacity onPress={onDailyForecastSelect}>
       <Container
@@ -24,13 +43,13 @@ const DailyForecastListItem = ({
         marginVertical="s"
         borderRadius="m">
         <Container>
-          <Typography variant="p1">{weatherDate}</Typography>
-          <Typography>{`${main.tempMin}/${main.tempMax}`}</Typography>
+          <Typography variant="p1">{weekDayLabel}</Typography>
+          <Typography>{temperatureLabel}</Typography>
         </Container>
         <Container alignItems="flex-end">
-          <Icon name="brokenClouds" width={40} height={40} />
+          {iconName ? <Icon name={iconName} width={30} height={30} /> : null}
           <Container flex={1}>
-            <Typography variant="p2">{weather[0].description}</Typography>
+            <Typography variant="p2">{weatherDescription}</Typography>
           </Container>
         </Container>
       </Container>
