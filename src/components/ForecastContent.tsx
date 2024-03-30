@@ -61,7 +61,7 @@ const ForecastContent = ({
 
   return (
     <FlatList
-      data={data?.list}
+      data={data?.firstForecastForEachDay}
       renderItem={renderItem}
       keyboardShouldPersistTaps={'handled'}
       showsVerticalScrollIndicator={false}
