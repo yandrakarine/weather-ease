@@ -5,7 +5,7 @@ type DailyWeather = {
 };
 
 type DailyForecast = {
-  weatherDate: string;
+  weatherDateTimeMs: number;
   main: {
     temperature: number;
     feelsLike: number;
@@ -33,7 +33,8 @@ type WeatherForecast = {
     country: string;
     population: number;
   };
-  list: DailyForecast[];
+  firstForecastForEachDay: DailyForecast[];
+  dailyForecastsByDay: DailyForecast[][];
 };
 
 type ForecastApiResponse = {
