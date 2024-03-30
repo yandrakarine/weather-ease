@@ -38,10 +38,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
       padding="l"
       backgroundColor="mainBackground">
       <SearchInput
-        backgroundColor="white"
-        borderRadius={'xl'}
         placeholder={texts.searchFor}
-        paddingHorizontal="l"
         onChangeText={setQueryText}
         value={queryText}
       />

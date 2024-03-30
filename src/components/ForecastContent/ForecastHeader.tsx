@@ -61,14 +61,14 @@ const ForecastHeader = ({
             </Typography>
           </Container>
         </Container>
-        <Container justifyContent="center" alignItems="flex-end">
-          <Typography variant="p2" color="white">
+        <Container justifyContent="center" flex={1} alignItems="flex-end">
+          <Typography variant="p2" color="white" textAlign="left">
             {weather.description}
           </Typography>
-          <Typography variant="p2" color="white">
+          <Typography variant="p2" color="white" textAlign="left">
             {temperatureLabel}
           </Typography>
-          <Typography variant="p2" color="white">
+          <Typography variant="p2" color="white" textAlign="left">
             {feelsLabel}
           </Typography>
         </Container>

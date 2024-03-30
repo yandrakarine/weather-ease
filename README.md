@@ -1,14 +1,28 @@
+<h1 align="center">❄️ Weather Ease ☀️</h1>
+
+## Demo
+
+🎥 [You can see an example video of its use here, remember to put the video in high resolution 😉.]()
+
+## Description
+
+<p align="center"> App that shows <a href='https://openweathermap.org/api'>Open Weather Api</a> about weather forecasts for cities.</p>
+
+<h4 align="center"> 
+	🚧  Weather Ease 🚀 Building...  🚧
+</h4>
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
 ## Step 1: Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+To start Metro, run the following command from the _root_ of Weather Ease App project:
 
 ```bash
 # using npm
@@ -46,34 +60,39 @@ If everything is set up _correctly_, you should see your new app running in your
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
 ## Congratulations! :tada:
 
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+You've successfully run and modified your **Weather Ease App**. :partying_face:
 
 # Troubleshooting
 
 If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
 
-# Learn More
+### 🛠 Techs
 
-To learn more about React Native, take a look at the following resources:
+The following tools were used in building the project:
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- [Node.js](https://nodejs.org/en/)
+- [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Native Dotenv](https://www.npmjs.com/package/react-native-dotenv)
+- [Commitzen](https://github.com/commitizen/cz-cli)
+- [Commitlint](https://github.com/conventional-changelog/commitlint)
+- [Lefthook](https://github.com/evilmartians/lefthook)
+- [Jest](https://jestjs.io/)
+- [React Testing Library](https://testing-library.com/docs/react-native-testing-library/intro)
+- [Restyle](https://shopify.github.io/restyle/)
+
+### Author
+
+---
+
+<a href="https://github.com/yandrakarine">
+   <img style="border-radius: 50%; margin: 20px" src="https://github.com/yandrakarine.png" width="100px;" alt=""/>
+   <br />
+   <p><b>🚀 Yandra Karine</b></p>
+</a>
+
+Made with ❤️ by Yandra Karine 👋🏽 Contact me!
+
+[![Linkedin Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yandra-karine-lima-4183b4143/)

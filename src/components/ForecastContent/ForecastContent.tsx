@@ -12,6 +12,7 @@ import { DailyForecastListItem } from '../DailyForecastListItem';
 import { useTheme } from '@shopify/restyle';
 import { Theme } from '@styles/theme';
 import { ForecastHeader } from './ForecastHeader';
+import { Typography } from '@components/Typography';
 
 type CityCoordinatesProps = CityCoordinates & {
   onDailyForecastSelect: () => void;
@@ -36,7 +37,7 @@ const ForecastContent = ({
     [theme.spacing.m],
   );
 
-  const { data, isLoading, isRefetching } = useQuery({
+  const { data, isLoading, isRefetching, error } = useQuery({
     queryKey: ['getWeatherForecast', { lat, lon }],
     enabled: !!lat && !!lon,
     queryFn: () => getWeatherForecast({ lat, lon }),
@@ -69,6 +70,19 @@ const ForecastContent = ({
     return (
       <Container style={styles.containerStyle} backgroundColor="white">
         <ActivityIndicator size={'large'} />
+      </Container>
+    );
+  }
+
+  if (error) {
+    return (
+      <Container
+        style={styles.containerStyle}
+        alignItems="center"
+        backgroundColor="white">
+        <Typography variant="p1" textAlign="center">
+          {error.message}
+        </Typography>
       </Container>
     );
   }
