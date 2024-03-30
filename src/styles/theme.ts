@@ -7,6 +7,7 @@ const palette = {
   background: '#1A1C4B',
   bgMain: '#8ba8d2',
   iconGrey: '#d3d3d3',
+  textBlue: '#0D273F',
 };
 
 const theme = createTheme({
@@ -15,6 +16,7 @@ const theme = createTheme({
     mainBackground: palette.bgMain,
     white: palette.white,
     black: palette.black,
+    darkBlue: palette.textBlue,
   },
   spacing: {
     s: 8,

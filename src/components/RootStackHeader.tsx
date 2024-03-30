@@ -13,7 +13,7 @@ type RootStackHeaderProps = {
 
 const RootStackHeader = ({ navigation, title }: RootStackHeaderProps) => (
   <Container
-    backgroundColor="white"
+    backgroundColor="mainBackground"
     paddingVertical="l"
     flexDirection="row"
     alignItems="center">
@@ -22,14 +22,16 @@ const RootStackHeader = ({ navigation, title }: RootStackHeaderProps) => (
       name="arrowLeft"
       width={30}
       height={30}
-      color="iconGrey"
+      color="white"
       touchProps={{
         onPress: navigation.goBack,
       }}
     />
     <Spacer horizontal="m" />
     <Visibility isVisible={!!title}>
-      <Typography variant="p1">{title}</Typography>
+      <Typography variant="p1" color="white">
+        {title}
+      </Typography>
     </Visibility>
   </Container>
 );
