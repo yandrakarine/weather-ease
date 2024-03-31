@@ -13,17 +13,15 @@ import { useTheme } from '@shopify/restyle';
 import { Theme } from '@styles/theme';
 import { ForecastHeader } from './ForecastHeader';
 import { Typography } from '@components/Typography';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-type CityCoordinatesProps = CityCoordinates & {
-  onDailyForecastSelect: () => void;
-};
+type DetailsScreenNavigationProp =
+  NativeStackNavigationProp<RootStackParamList>;
 
-const ForecastContent = ({
-  lat,
-  lon,
-  onDailyForecastSelect,
-}: CityCoordinatesProps) => {
+const ForecastContent = ({ lat, lon }: CityCoordinates) => {
   const theme = useTheme<Theme>();
+  const navigation = useNavigation<DetailsScreenNavigationProp>();
 
   const styles = useMemo(
     () => ({
@@ -44,13 +42,26 @@ const ForecastContent = ({
   });
 
   const renderItem = useCallback(
-    ({ item }: ListRenderItemInfo<DailyForecast>) => (
-      <DailyForecastListItem
-        {...item}
-        onDailyForecastSelect={onDailyForecastSelect}
-      />
-    ),
-    [onDailyForecastSelect],
+    ({ item, index }: ListRenderItemInfo<DailyForecast>) => {
+      const onDailyForecastSelect = () => {
+        if (!data?.dailyForecastsByDay[index] || !data?.city.name) {
+          return null;
+        }
+
+        navigation.navigate('DetailsScreen', {
+          weatherForecast: data.dailyForecastsByDay[index],
+          cityName: data.city.name,
+        });
+      };
+
+      return (
+        <DailyForecastListItem
+          {...item}
+          onDailyForecastSelect={onDailyForecastSelect}
+        />
+      );
+    },
+    [data?.city, data?.dailyForecastsByDay, navigation],
   );
 
   const HeaderComponent = useCallback(() => {

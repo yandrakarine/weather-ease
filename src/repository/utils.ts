@@ -20,7 +20,7 @@ const getCitiesFromGeoCodingApiResponse = (
 const getDailyForecastFromDailyForecastApiResponse = (
   dailyForecast: ForecastApiResponse['list'][number],
 ): DailyForecast => ({
-  weatherDate: new Date(dailyForecast.dt * 1000),
+  weatherDate: `${new Date(dailyForecast.dt * 1000)}`,
   main: {
     temperature: dailyForecast.main.temp,
     feelsLike: dailyForecast.main.feels_like,
