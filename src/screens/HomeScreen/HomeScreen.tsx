@@ -3,17 +3,14 @@ import { Container } from '@components/Container';
 import { ForecastContent } from '@components/ForecastContent/ForecastContent';
 import { SearchInput } from '@components/SearchInput';
 import { useDebounce } from '@hooks/useDebounce';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useCallback, useState } from 'react';
 import { texts } from './texts';
 import { Typography } from '@components/Typography';
 import { Visibility } from '@components/Visibility';
 
-type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'HomeScreen'>;
-
 const DELAY = 500;
 
-const HomeScreen = ({ navigation }: HomeScreenProps) => {
+const HomeScreen = () => {
   const [queryText, setQueryText] = useState('');
   const [cityCoordinates, setCityCoordinates] = useState<CityCoordinates>();
 
@@ -49,11 +46,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
         />
       ) : null}
       {shouldShowForecastsList ? (
-        <ForecastContent
-          lat={cityCoordinates.lat}
-          lon={cityCoordinates.lon}
-          onDailyForecastSelect={() => navigation.navigate('DetailsScreen')}
-        />
+        <ForecastContent lat={cityCoordinates.lat} lon={cityCoordinates.lon} />
       ) : null}
       <Visibility isVisible={!shouldShowForecastsList && !queryText}>
         <Container flexGrow={1} justifyContent="center">

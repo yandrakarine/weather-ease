@@ -5,7 +5,7 @@ type DailyWeather = {
 };
 
 type DailyForecast = {
-  weatherDate: Date;
+  weatherDate: string;
   main: {
     temperature: number;
     feelsLike: number;
