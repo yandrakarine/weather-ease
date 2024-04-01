@@ -69,6 +69,7 @@ const getWeatherForecastFromForecastApiResponse = (
   const firstForecastForEachDay = dailyForecastsByDay.map(
     dailyForecastList => dailyForecastList[0],
   );
+
   return {
     city: {
       id: forecastApiResponse.city.id,
