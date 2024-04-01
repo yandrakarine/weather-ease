@@ -41,7 +41,7 @@ yarn
 
 ## Step 3: Start the Metro Server
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+You will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
 To start Metro, run the following command from the _root_ of Weather Ease App project:
 
@@ -99,7 +99,7 @@ yarn test:tsc
 ```
 
 ## Commits
-In this project we followed the Git Flow commits pattern, to help us in the process we used [Commitizen](https://github.com/commitizen/cz-cli)
+In this project we followed the [Git Flow](https://www.gitkraken.com/learn/git/git-flow) commits pattern, to help us in the process we used [Commitizen](https://github.com/commitizen/cz-cli)
 ```bash
 yarn commit
 ```
