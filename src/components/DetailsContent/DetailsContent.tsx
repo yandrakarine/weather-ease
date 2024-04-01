@@ -13,8 +13,8 @@ import {
   getMetersPerSecond,
   getPercentage,
   getTemperatureLabel,
-} from '@utils/metricMesure';
-import { getIconNamesFromWeatherDescription } from '@utils/iconsList';
+} from '@utils/metricMesureUtils';
+import { getIconNamesFromWeatherDescription } from '@utils/utils';
 
 type DetailsContentProps = {
   cityName: RootStackParamList['DetailsScreen']['cityName'];

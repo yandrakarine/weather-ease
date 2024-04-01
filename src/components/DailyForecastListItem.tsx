@@ -4,8 +4,8 @@ import { TouchableOpacity } from 'react-native';
 import { Container } from './Container';
 import { Icon } from './Icon';
 import { Typography } from './Typography';
-import { getIconNamesFromWeatherDescription } from '@utils/iconsList';
-import { getTemperatureLabel } from '@utils/metricMesure';
+import { getIconNamesFromWeatherDescription } from '@utils/utils';
+import { getTemperatureLabel } from '@utils/metricMesureUtils';
 
 type DailyForecastListItemProps = DailyForecast & {
   onDailyForecastSelect: () => void;
