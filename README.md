@@ -107,7 +107,6 @@ The following tools were used in building the project:
 - [Commitlint](https://github.com/conventional-changelog/commitlint)
 - [Lefthook](https://github.com/evilmartians/lefthook)
 - [Jest](https://jestjs.io/)
-- [React Testing Library](https://testing-library.com/docs/react-native-testing-library/intro)
 - [Restyle](https://shopify.github.io/restyle/)
 
 ### Author
