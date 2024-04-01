@@ -6,6 +6,8 @@ type City = {
   state: string;
 };
 
+type CityCoordinates = Pick<City, 'lat' | 'lon'>;
+
 type CityApiResponse = City & {
-  local_names: any;
+  local_names?: any;
 };

@@ -13,7 +13,7 @@ type DailyForecast = {
     tempMax: number;
     humidity: number;
   };
-  weather: DailyWeather[];
+  weather: DailyWeather;
   wind: {
     speed: number;
     direction: number;
@@ -33,7 +33,8 @@ type WeatherForecast = {
     country: string;
     population: number;
   };
-  list: DailyForecast[];
+  firstForecastForEachDay: DailyForecast[];
+  dailyForecastsByDay: DailyForecast[][];
 };
 
 type ForecastApiResponse = {
@@ -59,7 +60,6 @@ type ForecastApiResponse = {
           id: number;
           main: string;
           description: string;
-          icon: string;
         },
       ];
       clouds: {

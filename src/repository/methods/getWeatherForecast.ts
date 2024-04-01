@@ -8,21 +8,26 @@ import {
 const getWeatherForecast = async ({
   lat,
   lon,
-}: {
-  lat: City['lat'];
-  lon: City['lon'];
-}): Promise<WeatherForecast | null> => {
+}: CityCoordinates): Promise<WeatherForecast | null> => {
   const forecastUri = getForecastURI({
     lat,
     lon,
   });
 
   try {
-    const response: ForecastApiResponse = await requestAdapter(forecastUri);
+    const response = await requestAdapter(forecastUri);
 
-    return getWeatherForecastFromForecastApiResponse(response);
+    if (response.status === 401) {
+      console.log(
+        '❌ Unauthorized, please check OPEN_WEATHER_API_KEY env variable.',
+      );
+    }
+
+    return getWeatherForecastFromForecastApiResponse(
+      response.data as ForecastApiResponse,
+    );
   } catch (error) {
-    throw new ServerError('Error loading weather forecast.');
+    throw new ServerError('❌ Error loading weather forecast.');
   }
 };
 
