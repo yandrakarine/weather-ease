@@ -32,20 +32,58 @@ npm start
 yarn start
 ```
 
-## Step 3: Checking TypeScript
+## Step 2: Start your Application
+
+Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+
+### For Android
+
+```bash
+# using npm
+npm run android
+
+# OR using Yarn
+yarn android
+```
+
+### For iOS
+
+```bash
+# using npm
+npm run ios
+
+# OR using Yarn
+yarn ios
+```
+
+If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+
+This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+
+## Congratulations! :tada:
+
+You've successfully run and modified your **Weather Ease App**. :partying_face:
+
+# Troubleshooting
+
+If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+
+# Userful methods
+
+## Checking TypeScript
 We check TypeScript every commit, but you can check it in isolation by running the following command:
 
 ```bash
 yarn test:tsc
 ```
 
-## Step 4: Commits
+## Commits
 In this project we followed the Git Flow commits pattern, to help us in the process we used [Commitizen](https://github.com/commitizen/cz-cli)
 ```bash
-yarn test:tsc
+yarn commit
 ```
 
-## Step 4: Running unit tests
+## Running unit tests
 We've added some unit tests for utility functions. You can run them using the following command:
 
 
@@ -56,14 +94,6 @@ yarn test
 # run for a specific file
 yarn test 'fileRelativePath'
 ```
-
-## Congratulations! :tada:
-
-You've successfully run and modified your **Weather Ease App**. :partying_face:
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
 
 ### 🛠 Techs
 
