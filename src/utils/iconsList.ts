@@ -60,12 +60,4 @@ const iconsList: {
   'overcast clouds': 'brokenClouds',
 };
 
-const getIconNamesFromWeatherDescription = (description: string) => {
-  if (iconsList[description]) {
-    return iconsList[description];
-  }
-
-  return null;
-};
-
-export { getIconNamesFromWeatherDescription };
+export { iconsList };

@@ -1,16 +1,16 @@
 const getTemperatureLabel = (
   temperature: DailyForecast['main']['temperature'],
 ) => {
-  return `${Math.ceil(temperature)}°C`;
+  return `${Math.round(temperature)}°C`;
 };
 
 export { getTemperatureLabel };
 
 const getPercentage = (value: number) => {
   if (value < 1) {
-    return `${value * 100}%`;
+    return `${Math.round(value * 100)}%`;
   }
-  return `${value}%`;
+  return `${Math.round(value)}%`;
 };
 
 export { getPercentage };
