@@ -135,7 +135,6 @@ const forecastApiResponse: ForecastApiResponse = {
           id: 801,
           main: 'Clouds',
           description: 'few clouds',
-          icon: '02n',
         },
       ],
       clouds: {
