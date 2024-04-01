@@ -2,7 +2,7 @@
 
 ## Demo
 
-🎥 [You can see an example video of its use here, remember to put the video in high resolution 😉.]()
+🎥 [You can see an example video of its use here, remember to put the video in high resolution 😉.](https://youtu.be/-gQA2G1PQis)
 
 ## Description
 
@@ -32,33 +32,30 @@ npm start
 yarn start
 ```
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
+## Step 3: Checking TypeScript
+We check TypeScript every commit, but you can check it in isolation by running the following command:
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+yarn test:tsc
 ```
 
-### For iOS
+## Step 4: Commits
+In this project we followed the Git Flow commits pattern, to help us in the process we used [Commitizen](https://github.com/commitizen/cz-cli)
+```bash
+yarn test:tsc
+```
+
+## Step 4: Running unit tests
+We've added some unit tests for utility functions. You can run them using the following command:
+
 
 ```bash
-# using npm
-npm run ios
+# run all of them
+yarn test
 
-# OR using Yarn
-yarn ios
+# run for a specific file
+yarn test 'fileRelativePath'
 ```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
 ## Congratulations! :tada:
 
@@ -76,7 +73,7 @@ The following tools were used in building the project:
 - [React Native](https://reactnative.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [React Native Dotenv](https://www.npmjs.com/package/react-native-dotenv)
-- [Commitzen](https://github.com/commitizen/cz-cli)
+- [Commitizen](https://github.com/commitizen/cz-cli)
 - [Commitlint](https://github.com/conventional-changelog/commitlint)
 - [Lefthook](https://github.com/evilmartians/lefthook)
 - [Jest](https://jestjs.io/)
