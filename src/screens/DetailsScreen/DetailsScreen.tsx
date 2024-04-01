@@ -8,6 +8,7 @@ import { Theme } from '@styles/theme';
 import React, { useCallback, useMemo, useState } from 'react';
 import { FlatList, ListRenderItemInfo, ScrollView } from 'react-native';
 import { texts } from './texts';
+import { Spacer } from '@components/Spacer';
 
 type DetailScreenProps = NativeStackScreenProps<
   RootStackParamList,
@@ -54,6 +55,8 @@ const DetailsScreen = ({ route }: DetailScreenProps) => {
     [],
   );
 
+  const renderSeparator = useCallback(() => <Spacer horizontal="s" />, []);
+
   return (
     <ScrollView contentContainerStyle={scroolViewStyles.containerStyle}>
       <DetailsContent
@@ -69,6 +72,7 @@ const DetailsScreen = ({ route }: DetailScreenProps) => {
           data={weatherForecast}
           contentContainerStyle={flatListStyles.containerStyle}
           renderItem={renderItem}
+          ItemSeparatorComponent={renderSeparator}
         />
       </Container>
     </ScrollView>

@@ -29,7 +29,7 @@ const SearchInput = (searchInputProps: TextInputProps) => {
       backgroundColor="white"
       borderRadius={'xl'}
       paddingHorizontal="l">
-      <Icon name="search" width={20} height={20} color="iconGrey" />
+      <Icon name="search" width={16} height={16} color="iconGrey" />
       <TextInput
         {...searchInputProps}
         placeholderTextColor={theme.colors.iconGrey}

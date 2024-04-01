@@ -1,4 +1,4 @@
-import { getTemperatureLabel } from '@utils/metricMesure';
+import { getTemperatureLabel } from '@utils/metricMesureUtils';
 
 const texts = {
   details: 'Details',
